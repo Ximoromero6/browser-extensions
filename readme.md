@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution here]()
-- Live Site URL: [Live site URL here]()
+- Solution URL: [Solution here](https://github.com/Ximoromero6/browser-extensions)
+- Live Site URL: [Live site URL here](https://ximoromero6.github.io/browser-extensions/)
 
 ## My process
 
