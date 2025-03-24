@@ -1,0 +1,21 @@
+@mixin theme($theme) {
+  background: map-get($theme, body);
+  color: map-get($theme, text);
+  border-color: map-get($theme, border);
+
+  input {
+    background-color: map-get($theme, input);
+    color: map-get($theme, text);
+    border: 1px solid map-get($theme, border);
+  }
+
+  .element {
+    background-color: map-get($theme, elements);
+    color: map-get($theme, text);
+    border: 1px solid map-get($theme, border);
+  }
+
+  .toggle-active {
+    background-color: map-get($theme, accent);
+  }
+}

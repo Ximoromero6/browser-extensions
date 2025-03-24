@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <title>Browser Extensions | Ximo Romero</title>
+  </head>
+  <body>
+    <header>
+      <div class="container element">
+        <a href="" class="logo">
+          <img src="assets/images/logo.svg" alt="Extensions Browser" />
+        </a>
+
+        <button type="button" id="theme-toggle">
+          <i class="fi fi-rc-moon"></i>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="extensions__header">
+          <h2 class="extensions__title">Extensions List</h2>
+          <div class="extensions__filters">
+            <button
+              type="button"
+              id="filter-all"
+              class="extensions__filter extensions__filter--active"
+            >
+              All
+            </button>
+            <button type="button" id="filter-active" class="extensions__filter">
+              Active
+            </button>
+            <button
+              type="button"
+              id="filter-inactive"
+              class="extensions__filter"
+            >
+              Inactive
+            </button>
+          </div>
+        </div>
+        <div class="extensions-container"></div>
+      </div>
+    </main>
+
+    <script type="module" src="assets/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+@import "variables";
+@import "mixins";
+
+body {
+  @include theme($light-theme);
+
+  &.dark-mode {
+    @include theme($dark-theme);
+  }
+}

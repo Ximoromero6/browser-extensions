@@ -1,0 +1,31 @@
+// Modo Claro
+$light-theme: (
+  body: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%),
+  background: hsl(200, 60%, 99%),
+  // Neutral 0%
+  text: hsl(227, 75%, 14%),
+  // Neutral 900
+  input: hsl(0, 0%, 100%),
+  // blanco puro
+  elements: hsl(0, 0%, 100%),
+  // blanco puro (tarjetas, contenedores)
+  border: hsl(220, 14%, 96%),
+  // bordes suaves
+  accent: hsl(3, 86%, 64%) // para botones o toggles (opcional),,,,,,,
+);
+
+// Modo Oscuro
+$dark-theme: (
+  body: linear-gradient(180deg, #040918 0%, #091540 100%),
+  background: hsl(209, 23%, 22%),
+  // fondo base oscuro
+  text: hsl(0, 0%, 100%),
+  // texto claro
+  input: hsl(209, 23%, 22%),
+  // mismo fondo para inputs
+  elements: hsl(207, 26%, 17%),
+  // tarjetas y bloques oscuros
+  border: hsl(0, 0%, 30%),
+  // bordes sutiles
+  accent: hsl(3, 86%, 64%) // rojo 400 (para toggles activos, etc.),,,,,,,
+);

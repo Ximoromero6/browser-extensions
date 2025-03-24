@@ -1,0 +1,307 @@
+header {
+  padding: 20px;
+  .container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 14px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 4px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+    a.logo {
+      border-radius: 5px;
+      img {
+        width: 150px;
+        height: auto;
+
+        body.dark-mode & {
+          filter: brightness(0) invert(1);
+        }
+      }
+
+      &:focus {
+        outline: 2px solid hsl(3, 71%, 56%);
+        outline-offset: 2px;
+      }
+    }
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      gap: 5px;
+      border: none;
+      border-radius: 10px;
+      background-color: hsl(0, 0%, 93%);
+      font-size: 14px;
+      cursor: pointer;
+      color: inherit;
+
+      i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      &:hover {
+        background-color: hsl(0, 0%, 78%);
+      }
+      &:focus {
+        outline: 2px solid hsl(3, 71%, 56%);
+        outline-offset: 2px;
+      }
+
+      body.dark-mode & {
+        background-color: hsl(225, 23%, 24%);
+        &:hover {
+          background-color: hsl(226, 11%, 37%);
+        }
+      }
+    }
+  }
+}
+
+main {
+  padding: 15px;
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .extensions__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .extensions__title {
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .extensions__filters {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        button.extensions__filter {
+          background-color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 20px;
+          font-size: 16px;
+          font-weight: 500;
+          box-shadow: rgba(0, 0, 93, 0.05) 0px 2px 5px -1px,
+            rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+          cursor: pointer;
+          text-align: center;
+          line-height: 15px;
+
+          &--active {
+            background-color: hsl(3, 77%, 44%);
+            color: #fff;
+            font-weight: 700;
+
+            &:hover {
+              background-color: hsl(3, 86%, 64%);
+            }
+          }
+
+          &:hover:not(&--active) {
+            background-color: #dde7f0;
+          }
+
+          &:focus {
+            outline: 2px solid hsl(3, 71%, 56%);
+            outline-offset: 2px;
+          }
+
+          body.dark-mode & {
+            background-color: hsl(225, 23%, 24%);
+            color: white;
+
+            &--active {
+              background-color: hsl(3, 77%, 44%);
+              color: hsl(226, 25%, 17%);
+
+              &:hover {
+                background-color: hsl(3, 86%, 64%);
+              }
+            }
+
+            &:hover:not(&--active) {
+              background-color: hsl(226, 11%, 37%);
+            }
+          }
+        }
+      }
+    }
+
+    .extensions-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+
+      .loader {
+        text-align: center;
+        font-size: 16px;
+        margin: 20px auto;
+        font-weight: 700;
+      }
+
+      .extension-card {
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 4px -1px,
+          rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 35px;
+
+        .extension-card-info {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          gap: 15px;
+
+          img {
+            width: 60px;
+            height: 60px;
+          }
+
+          .text {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            .title {
+              font-size: 17px;
+            }
+            .desc {
+              font-size: 14px;
+              line-height: 20px;
+            }
+          }
+        }
+
+        .extension-card-options {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .remove-btn {
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            border-color: hsl(0, 0%, 78%);
+            transition: all 0.1s ease-in-out;
+
+            &:hover {
+              background-color: hsl(3, 77%, 44%);
+              color: hsl(200, 60%, 99%);
+              border-color: transparent;
+            }
+
+            &:focus {
+              outline: 2px solid hsl(3, 71%, 56%);
+              outline-offset: 2px;
+            }
+
+            body.dark-mode & {
+              border-color: hsl(226, 11%, 37%);
+            }
+          }
+        }
+      }
+    }
+
+    .mini-switch {
+      position: relative;
+      display: inline-block;
+      width: 36px;
+      height: 20px;
+      cursor: pointer;
+
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked + .slider {
+          background-color: hsl(3, 77%, 44%);
+
+          &::before {
+            transform: translateX(16px);
+          }
+          &:hover {
+            background-color: hsl(3, 71%, 56%);
+          }
+        }
+        &:focus + .slider {
+          outline: 2px solid hsl(3, 71%, 56%);
+          outline-offset: 2px;
+        }
+
+        &:disabled + .slider {
+          background-color: #dcdfe4;
+          cursor: not-allowed;
+
+          &::before {
+            background-color: #f1f1f1;
+          }
+        }
+      }
+
+      .slider {
+        position: absolute;
+        inset: 0;
+        background-color: hsl(0, 0%, 78%);
+        transition: background-color 0.2s;
+        border-radius: 999px;
+        cursor: pointer;
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 16px;
+          height: 16px;
+          top: 2px;
+          left: 2px;
+          background-color: white;
+          transition: transform 0.2s;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    .container {
+      padding: 15px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    .container {
+      padding: 10px;
+    }
+  }
+  main {
+    .container {
+      .extensions__header {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  }
+}
