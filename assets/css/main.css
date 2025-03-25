@@ -278,6 +278,7 @@ main .container .extensions-container .extension-card .extension-card-info .text
 }
 main .container .extensions-container .extension-card .extension-card-info .text .title {
   font-size: 17px;
+  font-weight: 700;
 }
 main .container .extensions-container .extension-card .extension-card-info .text .desc {
   font-size: 14px;
