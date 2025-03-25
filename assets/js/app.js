@@ -49,11 +49,11 @@ const renderExtensions = (extensions) => {
       </div>
 
       <div class="extension-card-options">
-        <button type="button" class="remove-btn element">Remove</button>
+        <button type="button" class="remove-btn element" aria-label="Remove extension">Remove</button>
         <label class="mini-switch">
           <input type="checkbox" class="mini-switch__checkbox" ${
             extension.isActive ? "checked" : ""
-          }>
+          } aria-label="Switch extension">
           <span class="slider"></span>
         </label>
       </div>
