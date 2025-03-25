@@ -61,23 +61,46 @@ const renderExtensions = (extensions) => {
 
     // Evento de switch
     const checkbox = card.querySelector(".mini-switch__checkbox");
+
     checkbox.addEventListener("change", (e) => {
-      const ext = getExtensionsFromStorage();
-      ext[index].isActive = e.target.checked;
-      localStorage.setItem("extensions", JSON.stringify(ext));
+      const allExtensions = getExtensionsFromStorage();
+      const index = allExtensions.findIndex(
+        (ext) => ext.name === extension.name
+      );
+
+      if (index !== -1) {
+        allExtensions[index].isActive = e.target.checked;
+        localStorage.setItem("extensions", JSON.stringify(allExtensions));
+      }
     });
 
     // Evento de eliminar
     const removeBtn = card.querySelector(".remove-btn");
     removeBtn.addEventListener("click", () => {
-      const ext = getExtensionsFromStorage();
-      ext.splice(index, 1);
-      localStorage.setItem("extensions", JSON.stringify(ext));
-      renderExtensions(ext);
+      const allExtensions = getExtensionsFromStorage();
+      const updated = allExtensions.filter(
+        (ext) => ext.name !== extension.name
+      );
+      localStorage.setItem("extensions", JSON.stringify(updated));
+
+      applyStoredFilter(); // Reaplica el filtro actual
     });
 
     container.appendChild(card);
   });
+};
+
+const applyStoredFilter = () => {
+  const storedFilter = localStorage.getItem("activeFilter") || "all";
+  const all = getExtensionsFromStorage();
+
+  if (storedFilter === "active") {
+    renderExtensions(all.filter((e) => e.isActive));
+  } else if (storedFilter === "inactive") {
+    renderExtensions(all.filter((e) => !e.isActive));
+  } else {
+    renderExtensions(all);
+  }
 };
 
 /**
@@ -91,21 +114,19 @@ const setupFilterButtons = () => {
   allBtn.addEventListener("click", () => {
     updateActiveFilter(allBtn);
     localStorage.setItem("activeFilter", "all");
-    renderExtensions(getExtensionsFromStorage());
+    applyStoredFilter();
   });
 
   activeBtn.addEventListener("click", () => {
     updateActiveFilter(activeBtn);
     localStorage.setItem("activeFilter", "active");
-    const active = getExtensionsFromStorage().filter((e) => e.isActive);
-    renderExtensions(active);
+    applyStoredFilter();
   });
 
   inactiveBtn.addEventListener("click", () => {
     updateActiveFilter(inactiveBtn);
     localStorage.setItem("activeFilter", "inactive");
-    const inactive = getExtensionsFromStorage().filter((e) => !e.isActive);
-    renderExtensions(inactive);
+    applyStoredFilter();
   });
 
   // Al cargar la página, restauramos el filtro guardado
