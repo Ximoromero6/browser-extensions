@@ -43,7 +43,7 @@ const renderExtensions = (extensions) => {
       <div class="extension-card-info">
         <img src="${extension.logo}" alt="${extension.name}">
         <div class="text">
-          <h3 class="title">${extension.name}</h3>
+          <h2 class="title">${extension.name}</h2>
           <p class="desc">${extension.description}</p>
         </div>
       </div>
